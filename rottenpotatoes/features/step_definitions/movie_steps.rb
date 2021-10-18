@@ -45,6 +45,13 @@ end
 
 Then /I should see all the movies/ do
   # Make sure that all the movies in the app are visible in the table
+	#puts page.text
+	#puts '=='
+	#puts page.body
+	#puts '=='
+	#puts page.html
+	#puts '=='
+	#puts page.source
 	rows = page.text.scan(/More about/).length
 	expect(rows).to eq(10)
 end
