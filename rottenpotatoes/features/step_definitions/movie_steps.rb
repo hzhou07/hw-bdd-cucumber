@@ -6,7 +6,6 @@ Given /the following movies exist/ do |movies_table|
     # you should arrange to add that movie to the database here.
     Movie.create(title: movie[:title], rating: movie[:rating], release_date: movie[:release_date])
   end
-  #fail "Unimplemented"
 end
 
 Then /(.*) seed movies should exist/ do | n_seeds |
@@ -19,7 +18,9 @@ end
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.body is the entire content of the page as a string.
-  fail "Unimplemented"
+	regexp = /#{e1}.*#{e2}/m
+#	page.body.should =~ regexp
+	expect(page).to have_content(regexp)
 end
 
 # Make it easier to express checking or unchecking several boxes at once
